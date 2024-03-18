@@ -21,6 +21,13 @@
   gap: 1rem;
 }
 
+.popup__grid__items {
+  cursor: pointer;
+  border: 1px solid var(--color-black);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
 .popup__grid__items:last-of-type {
   grid-column: 1 / span 1;
   grid-row: 10 / span 1;
