@@ -1,5 +1,9 @@
-import "./Header.css"
+import "./Header.css";
 
 export const Header = () => {
-  return <div>Header</div>
-}
+  return (
+    <div className="header">
+      <img src="../../../public/images/pokemon-logo.png" alt="" />
+    </div>
+  );
+};
