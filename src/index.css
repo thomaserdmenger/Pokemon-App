@@ -1,7 +1,45 @@
+@font-face {
+  font-family: Inter;
+  src: url(/fonts/Inter-VariableFont.ttf);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+:root {
+  --color-background: #ccdadd;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-light: #ebebeb;
+  --color-gray-dark: #909090;
+  --color-bug: #3bba00;
+  --color-dark: #1c1c1c;
+  --color-dragon: #01458a;
+  --color-electric: #ffe600;
+  --color-fairy: #ffc2f9;
+  --color-fighting: #e40202;
+  --color-fire: #ff9900;
+  --color-flying: #cbdade;
+  --color-ghost: #5a1e63;
+  --color-grass: #56931c;
+  --color-ground: #965a00;
+  --color-ice: #69d2ff;
+  --color-normal: #b3b3b3;
+  --color-plant: #6fe000;
+  --color-poison: #ac00ae;
+  --color-psychic: #ff81f2;
+  --color-rock: #e1b237;
+  --color-steel: #2a4950;
+  --color-water: #00a0e4;
+  --color-poke-yellow: #ffcb03;
+  --color-poke-blue: #2d72b8;
+}
+
+html {
+  font-family: Inter;
 }
 
 img {

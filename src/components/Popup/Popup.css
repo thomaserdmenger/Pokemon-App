@@ -1,0 +1,27 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.popup__heading {
+  text-transform: uppercase;
+}
+
+.popup__form {
+  width: 100%;
+}
+
+.popup__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  margin-inline: auto;
+  gap: 1rem;
+}
+
+.popup__grid__items:last-of-type {
+  grid-column: 1 / span 1;
+  grid-row: 10 / span 1;
+}
