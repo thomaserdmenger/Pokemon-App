@@ -7,6 +7,8 @@
 
 .popup__heading {
   text-transform: uppercase;
+  color: var(--color-poke-yellow);
+  text-shadow: 0 0 5px #000;
 }
 
 .popup__form {
@@ -26,9 +28,16 @@
   border: 1px solid var(--color-black);
   border-radius: 5px;
   padding: 1rem;
+  text-transform: uppercase;
+  color: var(--color-white);
+  font-weight: 700;
 }
 
-.popup__grid__items:last-of-type {
+.popup__grid__items:nth-of-type(20) {
   grid-column: 1 / span 1;
   grid-row: 10 / span 1;
+}
+
+.popup__grid__items:nth-of-type(19) {
+  display: none;
 }

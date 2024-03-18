@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 export const Popup = () => {
   const [type, setType] = useState([])
   const [typeURL, setTypeURL] = useState("")
-  const [pokemonData, setPolemonData] = useState([])
+  const [pokemonData, setPokemonData] = useState([])
 
   // Fetch Data From Type API
   useEffect(() => {
@@ -19,7 +19,7 @@ export const Popup = () => {
     if (typeURL !== "") {
       fetch(typeURL)
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => setPokemonData(data))
     }
   }
 
@@ -37,6 +37,7 @@ export const Popup = () => {
                   className='popup__grid__items'
                   key={index}
                   value={typeURL}
+                  style={{ backgroundColor: colors[item.name] }}
                   onClick={() => setTypeURL(item.url)}>
                   {item.name !== "unknown" && item.name}
                 </p>
