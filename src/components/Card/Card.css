@@ -1,0 +1,25 @@
+.card__container {
+  border-radius: 1rem;
+  width: 100%;
+  background-color: gray;
+
+  background-color: orange;
+  margin-top: 7vh;
+}
+
+.card__container img {
+  margin-top: -10vh;
+}
+
+.card__details {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 1.5vh;
+  background-color: white;
+  padding: 1rem;
+}
+
+.card__details__title {
+  text-transform: capitalize;
+}
