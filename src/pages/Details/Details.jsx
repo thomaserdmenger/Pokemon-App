@@ -1,5 +1,18 @@
 import "../Details/Details"
+import { Header } from "../../components/Header/Header"
+import { SearchBar } from "../../components/SearchBar/SearchBar"
+import { DarkMode } from "../../components/DarkMode/DarkMode"
 
 export const Details = () => {
-  return <div>Details</div>
+  return (
+    <>
+      <Header />
+      <main>
+        <div>
+          <SearchBar />
+          <DarkMode />
+        </div>
+      </main>
+    </>
+  )
 }
