@@ -10,6 +10,8 @@ import { useEffect, useState } from "react"
 export const Home = () => {
   // State for Pokemon Data for Home Page
   const [pokemonData, setPokemonData] = useState([])
+  const [pokemonFilteredData, setPokemonFilteredData] = useState([])
+  console.log(pokemonFilteredData)
 
   // State for Burger Menu
   const [togglePopup, setTogglePopup] = useState(false)
@@ -17,6 +19,9 @@ export const Home = () => {
 
   // State for Pokemon Data per Type form Popup
   const [pokemonTypeData, setPokemonTypeData] = useState([])
+
+  // User Input
+  const [searchResult, setSearchResult] = useState("")
 
   // 1025 einträge, der Rest sind spezielle Formen von pokemon
   // https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1025
@@ -28,6 +33,14 @@ export const Home = () => {
       .catch((error) => console.error("Error in Home.jsx fetch", error))
   }, [])
   // console.log(pokemonData);
+
+  // Filter Pokemon Data for Home Page per User Input
+  useEffect(() => {
+    const filteredData = pokemonData?.results?.filter((item) =>
+      item.name.toLowerCase().includes(searchResult.toLowerCase())
+    )
+    setPokemonFilteredData(filteredData)
+  }, [searchResult])
 
   return (
     // ! Home Page mit Standard Pokemon
@@ -41,21 +54,37 @@ export const Home = () => {
                 setTogglePopup={setTogglePopup}
                 togglePopup={togglePopup}
               />
-              <SearchBar />
+              <SearchBar
+                setSearchResult={setSearchResult}
+                searchResult={searchResult}
+              />
               <DarkMode />
             </div>
-            <section className='home__cardContainer'>
-              {pokemonData.results ? (
-                pokemonData?.results.map((item, index) => (
-                  <Card imgURL={item?.url} key={index} title={item.name} />
-                ))
-              ) : (
-                <p>loading...</p>
-              )}
-            </section>
+            {searchResult.length === 0 ? (
+              <section className='home__cardContainer'>
+                {pokemonData.results ? (
+                  pokemonData?.results.map((item, index) => (
+                    <Card imgURL={item?.url} key={index} title={item.name} />
+                  ))
+                ) : (
+                  <p>loading...</p>
+                )}
+              </section>
+            ) : (
+              <section className='home__cardContainer'>
+                {pokemonFilteredData ? (
+                  pokemonFilteredData.map((item, index) => (
+                    <Card imgURL={item?.url} key={index} title={item.name} />
+                  ))
+                ) : (
+                  <p>loading...</p>
+                )}
+              </section>
+            )}
           </main>
         )}
       </div>
+
       {/* ! Popup */}
       <div>
         {togglePopup && (

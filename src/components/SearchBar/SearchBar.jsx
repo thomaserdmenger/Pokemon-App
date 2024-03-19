@@ -1,9 +1,8 @@
-import { useState } from "react"
+// import { useState } from "react"
 import "./SearchBar.css"
 
-export const SearchBar = () => {
-  // # State in Home Page und über Props abfragen
-  const [searchResult, setSearchResult] = useState("")
+export const SearchBar = ({ setSearchResult, searchResult }) => {
+  // const [searchResult, setSearchResult] = useState("")
 
   return (
     <form className='search' onSubmit={(e) => e.preventDefault()}>
