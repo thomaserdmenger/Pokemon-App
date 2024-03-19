@@ -15,10 +15,6 @@ export const Details = () => {
   const [pokemonByName, setPokemonByName] = useState(null);
   const [pokemonFilteredData, setPokemonFilteredData] = useState([]);
 
-  // console.log(searchText);
-  // console.log(pokemonByName);
-  console.log(pokemonFilteredData);
-
   // --- store link id
   const { id } = useParams();
 

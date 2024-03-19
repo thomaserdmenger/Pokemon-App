@@ -2,22 +2,34 @@
   border-radius: 1rem;
   width: 100%;
   background-color: gray;
-
   background-color: orange;
-  margin-top: 7vh;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: flex-end;
+  margin-block-end: 1rem;
 }
 
-.card__container img {
-  margin-top: -10vh;
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__image {
+  margin-top: -1rem;
+  width: 100%;
+
+  object-position: center -15px;
 }
 
 .card__details {
   display: flex;
-  align-items: flex-end;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 1.5vh;
-  background-color: white;
+  background-color: var(--color-white);
   padding: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  justify-self: flex-end;
 }
 
 .card__details__title {

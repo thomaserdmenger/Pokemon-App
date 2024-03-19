@@ -1,3 +1,19 @@
+.popup__header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 2rem;
+}
+
+.popup__header img {
+  width: 80%;
+}
+
+.popup__header svg {
+  fill: var(--color-white);
+}
+
 .popup {
   display: flex;
   flex-direction: column;
@@ -18,16 +34,16 @@
 .popup__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: 70%;
+  width: 100%;
   margin-inline: auto;
-  gap: 2rem;
-  margin-block-end: 4rem;
+  gap: 1.5rem;
+  margin-block-end: 3rem;
 }
 
 .popup__grid__items {
   cursor: pointer;
   border-radius: 5px;
-  padding: 1.5rem;
+  padding: 1rem;
   text-transform: uppercase;
   color: var(--color-white);
   font-weight: 700;

@@ -9,9 +9,11 @@
   gap: 1.25rem;
 }
 .detail__searchbar {
-  width: 90vw;
+  width: 100%;
   height: 2rem;
   display: flex;
+  margin-block-start: 1rem;
+  margin-block-end: 3rem;
 }
 
 /* --- image and title */

@@ -7,6 +7,6 @@
 .home__search-container {
   display: flex;
   align-items: center;
-  margin-block-end: 2rem;
   margin-block-start: 1rem;
+  margin-block-end: 3rem;
 }
