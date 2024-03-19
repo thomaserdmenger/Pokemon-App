@@ -2,9 +2,6 @@ import { useState } from "react";
 import "./BurgerMenu.css";
 
 export const BurgerMenu = ({ togglePopup, setTogglePopup }) => {
-  // # State in Home Komponente und über Props toggeln
-  // console.log(togglePopup)
-
   return (
     <div className="burger">
       <svg

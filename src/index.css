@@ -62,4 +62,5 @@ a {
   padding-inline: 2rem;
   max-width: 450px;
   margin-inline: auto;
+  padding-block-start: 1rem;
 }

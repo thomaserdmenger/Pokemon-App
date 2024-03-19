@@ -82,7 +82,6 @@ export const Home = () => {
               </section>
             ) : (
               <section className="home__cardContainer">
-                {console.log(pokemonFilteredData)}
                 {pokemonFilteredData ? (
                   pokemonFilteredData.map((item, index) => (
                     <Card imgURL={item?.url} key={index} title={item.name} />
@@ -110,7 +109,7 @@ export const Home = () => {
         {!togglePopup && pokemonTypeData.length !== 0 && (
           <main>
             <Header />
-            <div>
+            <div className="home__search-container">
               <BurgerMenu
                 setTogglePopup={setTogglePopup}
                 togglePopup={togglePopup}
@@ -137,7 +136,6 @@ export const Home = () => {
               </section>
             ) : (
               <section className="home__cardContainer">
-                {console.log(pokemonFilterdTypeData)}
                 {pokemonFilterdTypeData?.pokemon ? (
                   pokemonFilterdTypeData?.pokemon?.map((item, index) => (
                     <Card
