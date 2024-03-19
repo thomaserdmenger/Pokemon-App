@@ -15,9 +15,11 @@ export const Home = () => {
   // State for Burger Menu
   const [togglePopup, setTogglePopup] = useState(false);
 
-  // State for Pokemon Data per Type form Popup
+  // # State for Pokemon Data per Type form Popup
   const [pokemonTypeData, setPokemonTypeData] = useState([]);
   const [pokemonFilterdTypeData, setPokemonFilteredTypeData] = useState([]);
+  // console.log(pokemonTypeData);
+  // console.log(pokemonFilterdTypeData);
 
   // User Input
   const [searchResult, setSearchResult] = useState("");
@@ -42,14 +44,18 @@ export const Home = () => {
     setPokemonFilteredData(filteredData);
   }, [searchResult]);
 
-  // Filter Pokomon Type Data for Home Page per User Input
+  // # Filter Pokomon Type Data for Home Page per User Input
   useEffect(() => {
-    const filteredData = pokemonTypeData?.results?.filter((item) =>
-      item.name.toLowerCase().includes(searchResult.toLowerCase())
+    const filteredData = pokemonTypeData?.pokemon?.filter((item) =>
+      item.pokemon.name.toLowerCase().includes(searchResult.toLowerCase())
     );
 
-    setPokemonFilteredTypeData(filteredData);
-  }, [searchResult]);
+    let object = {
+      pokemon: filteredData
+    };
+
+    setPokemonFilteredTypeData(object);
+  }, [searchResult, pokemonTypeData]);
 
   return (
     // ! Home Page mit Standard Pokemon
@@ -136,8 +142,9 @@ export const Home = () => {
               </section>
             ) : (
               <section className="home__cardContainer">
-                {pokemonFilterdTypeData ? (
-                  pokemonFilterdTypeData.map((item, index) => (
+                {console.log(pokemonFilterdTypeData)}
+                {pokemonFilterdTypeData?.pokemon ? (
+                  pokemonFilterdTypeData?.pokemon?.map((item, index) => (
                     <Card
                       imgURL={item?.pokemon?.url}
                       key={index}
