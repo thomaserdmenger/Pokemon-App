@@ -10,8 +10,7 @@ export const Card = (props) => {
       .then((res) => res.json())
       .then((apiData) => setPokemonData(apiData))
       .catch((error) => console.error("Error in Card.jsx fetch", error))
-  }, [])
-  // console.log(pokemonData)
+  }, [props.imgURL])
 
   return (
     <article className='card__container'>

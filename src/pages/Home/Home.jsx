@@ -9,18 +9,15 @@ import { useEffect, useState } from "react";
 
 export const Home = () => {
   // State for Pokemon Data for Home Page
-  const [pokemonData, setPokemonData] = useState([]);
-  const [pokemonFilteredData, setPokemonFilteredData] = useState([]);
-  console.log(pokemonFilteredData);
+  const [pokemonData, setPokemonData] = useState([])
+  const [pokemonFilteredData, setPokemonFilteredData] = useState([])
 
   // State for Burger Menu
-  const [togglePopup, setTogglePopup] = useState(false);
-  // console.log(togglePopup)
+  const [togglePopup, setTogglePopup] = useState(false)
 
   // State for Pokemon Data per Type form Popup
-  const [pokemonTypeData, setPokemonTypeData] = useState([]);
-  const [pokemonFilterdTypeData, setPokemonFilteredTypeData] = useState([]);
-  console.log(pokemonFilterdTypeData);
+  const [pokemonTypeData, setPokemonTypeData] = useState([])
+  const [pokemonFilterdTypeData, setPokemonFilteredTypeData] = useState([])
 
   // User Input
   const [searchResult, setSearchResult] = useState("");
@@ -40,17 +37,19 @@ export const Home = () => {
   useEffect(() => {
     const filteredData = pokemonData?.results?.filter((item) =>
       item.name.toLowerCase().includes(searchResult.toLowerCase())
-    );
-    setPokemonFilteredData(filteredData);
-  }, [searchResult]);
+    )
+    
+    setPokemonFilteredData(filteredData)
+  }, [searchResult])
 
   // Filter Pokomon Type Data for Home Page per User Input
   useEffect(() => {
     const filteredData = pokemonTypeData?.results?.filter((item) =>
       item.name.toLowerCase().includes(searchResult.toLowerCase())
-    );
-    setPokemonFilteredTypeData(filteredData);
-  }, [searchResult]);
+    )
+
+    setPokemonFilteredTypeData(filteredData)
+  }, [searchResult])
 
   return (
     // ! Home Page mit Standard Pokemon
@@ -73,7 +72,7 @@ export const Home = () => {
             {searchResult.length === 0 ? (
               <section className="home__cardContainer">
                 {pokemonData.results ? (
-                  pokemonData?.results.map((item, index) => (
+                  pokemonData.results.map((item, index) => (
                     <Card imgURL={item?.url} key={index} title={item.name} />
                   ))
                 ) : (
@@ -81,7 +80,8 @@ export const Home = () => {
                 )}
               </section>
             ) : (
-              <section className="home__cardContainer">
+              <section className='home__cardContainer'>
+                {console.log(pokemonFilteredData)}
                 {pokemonFilteredData ? (
                   pokemonFilteredData.map((item, index) => (
                     <Card imgURL={item?.url} key={index} title={item.name} />
@@ -135,8 +135,8 @@ export const Home = () => {
                 )}
               </section>
             ) : (
-              <section className="home__cardContainer">
-                {/* {pokemonFilterdTypeData ? (
+              <section className='home__cardContainer'>
+                {pokemonFilterdTypeData ? (
                   pokemonFilterdTypeData.map((item, index) => (
                     <Card
                       imgURL={item?.pokemon?.url}
@@ -146,7 +146,7 @@ export const Home = () => {
                   ))
                 ) : (
                   <p>loading...</p>
-                )} */}
+                )}
               </section>
             )}
           </main>
