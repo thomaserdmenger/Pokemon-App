@@ -1,9 +1,6 @@
-// import { useState } from "react"
 import "./SearchBar.css"
 
 export const SearchBar = ({ setSearchResult, searchResult }) => {
-  // const [searchResult, setSearchResult] = useState("")
-
   return (
     <form className='search' onSubmit={(e) => e.preventDefault()}>
       <input

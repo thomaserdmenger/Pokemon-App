@@ -19,6 +19,8 @@ export const Home = () => {
 
   // State for Pokemon Data per Type form Popup
   const [pokemonTypeData, setPokemonTypeData] = useState([])
+  const [pokemonFilterdTypeData, setPokemonFilteredTypeData] = useState([])
+  console.log(pokemonFilterdTypeData)
 
   // User Input
   const [searchResult, setSearchResult] = useState("")
@@ -40,6 +42,14 @@ export const Home = () => {
       item.name.toLowerCase().includes(searchResult.toLowerCase())
     )
     setPokemonFilteredData(filteredData)
+  }, [searchResult])
+
+  // Filter Pokomon Type Data for Home Page per User Input
+  useEffect(() => {
+    const filteredData = pokemonTypeData?.results?.filter((item) =>
+      item.name.toLowerCase().includes(searchResult.toLowerCase())
+    )
+    setPokemonFilteredTypeData(filteredData)
   }, [searchResult])
 
   return (
@@ -104,22 +114,41 @@ export const Home = () => {
                 setTogglePopup={setTogglePopup}
                 togglePopup={togglePopup}
               />
-              <SearchBar />
+              <SearchBar
+                setSearchResult={setSearchResult}
+                searchResult={searchResult}
+              />
               <DarkMode />
             </div>
-            <section className='home__cardContainer'>
-              {pokemonTypeData?.pokemon ? (
-                pokemonTypeData?.pokemon.map((item, index) => (
-                  <Card
-                    imgURL={item?.pokemon?.url}
-                    key={index}
-                    title={item?.pokemon?.name}
-                  />
-                ))
-              ) : (
-                <p>loading...</p>
-              )}
-            </section>
+            {searchResult.length === 0 ? (
+              <section className='home__cardContainer'>
+                {pokemonTypeData?.pokemon ? (
+                  pokemonTypeData?.pokemon.map((item, index) => (
+                    <Card
+                      imgURL={item?.pokemon?.url}
+                      key={index}
+                      title={item?.pokemon?.name}
+                    />
+                  ))
+                ) : (
+                  <p>loading...</p>
+                )}
+              </section>
+            ) : (
+              <section className='home__cardContainer'>
+                {/* {pokemonFilterdTypeData ? (
+                  pokemonFilterdTypeData.map((item, index) => (
+                    <Card
+                      imgURL={item?.pokemon?.url}
+                      key={index}
+                      title={item?.pokemon?.name}
+                    />
+                  ))
+                ) : (
+                  <p>loading...</p>
+                )} */}
+              </section>
+            )}
           </main>
         )}
       </div>
