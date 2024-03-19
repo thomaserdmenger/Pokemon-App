@@ -8,12 +8,15 @@ import { Card } from "../../components/Card/Card"
 import { useEffect, useState } from "react"
 
 export const Home = () => {
-  // State for Pokemon Data
+  // State for Pokemon Data for Home Page
   const [pokemonData, setPokemonData] = useState([])
 
   // State for Burger Menu
   const [togglePopup, setTogglePopup] = useState(false)
   // console.log(togglePopup)
+
+  // State for Pokemon Data per Type form Popup
+  const [pokemonTypeData, setPokemonTypeData] = useState([])
 
   // 1025 einträge, der Rest sind spezielle Formen von pokemon
   // https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1025
@@ -27,13 +30,11 @@ export const Home = () => {
   // console.log(pokemonData);
 
   return (
-    // ! Home Page
-
+    // ! Home Page mit Standard Pokemon
     <>
       <div>
-        {!togglePopup && (
+        {!togglePopup && pokemonTypeData.length === 0 && (
           <main>
-            {/* <h1>Home</h1> */}
             <Header />
             <div>
               <BurgerMenu
@@ -55,11 +56,46 @@ export const Home = () => {
           </main>
         )}
       </div>
+      {/* ! Popup */}
       <div>
         {togglePopup && (
-          <Popup setTogglePopup={setTogglePopup} togglePopup={togglePopup} />
+          <Popup
+            setTogglePopup={setTogglePopup}
+            setPokemonTypeData={setPokemonTypeData}
+          />
+        )}
+      </div>
+      {/* Home Page mit Type Pokemon */}
+      <div>
+        {!togglePopup && pokemonTypeData.length !== 0 && (
+          <main>
+            <Header />
+            <div>
+              <BurgerMenu
+                setTogglePopup={setTogglePopup}
+                togglePopup={togglePopup}
+              />
+              <SearchBar />
+              <DarkMode />
+            </div>
+            <section className='home__cardContainer'>
+              {pokemonTypeData?.pokemon ? (
+                pokemonTypeData?.pokemon.map((item, index) => (
+                  <Card
+                    imgURL={item?.pokemon?.url}
+                    key={index}
+                    title={item?.pokemon?.name}
+                  />
+                ))
+              ) : (
+                <p>loading...</p>
+              )}
+            </section>
+          </main>
         )}
       </div>
     </>
   )
 }
+
+// pokemonTypeData?.pokemon?.map((item) => console.log(item.pokemon.name))

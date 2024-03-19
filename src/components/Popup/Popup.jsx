@@ -2,12 +2,10 @@ import "./Popup.css"
 import { colors } from "../../assets/data/data"
 import { useState, useEffect } from "react"
 
-export const Popup = ({ setTogglePopup, togglePopup }) => {
+export const Popup = ({ setTogglePopup, setPokemonTypeData }) => {
   const [type, setType] = useState([])
   const [typeURL, setTypeURL] = useState("")
-  const [pokemonData, setPokemonData] = useState([])
-
-  // console.log(pokemonData)
+  // const [pokemonTypeData, setPokemonTypeData] = useState([])
 
   // Fetch Data From Type API
   useEffect(() => {
@@ -22,7 +20,7 @@ export const Popup = ({ setTogglePopup, togglePopup }) => {
       fetch(typeURL)
         .then((res) => res.json())
         .then((data) => {
-          setPokemonData(data)
+          setPokemonTypeData(data)
         })
     }
 
