@@ -18,4 +18,4 @@ export const colors = {
   rock: "#e1b237",
   steel: "#2a4950",
   water: "#00a0e4"
-}
+};
