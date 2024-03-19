@@ -7,6 +7,8 @@ export const Popup = () => {
   const [typeURL, setTypeURL] = useState("")
   const [pokemonData, setPokemonData] = useState([])
 
+  console.log(pokemonData)
+
   // Fetch Data From Type API
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/type/")
@@ -28,23 +30,32 @@ export const Popup = () => {
   return (
     <main>
       <section className='popup'>
-        <h1 className='popup__heading'>Type</h1>
+        <img
+          className='popup__heading'
+          src='/public/images/type.png'
+          alt='Type Logo'
+        />
         <div className='popup__form'>
           <div className='popup__grid'>
             {type.map((item, index) => {
               return (
-                <p
+                <div
                   className='popup__grid__items'
                   key={index}
-                  value={typeURL}
-                  style={{ backgroundColor: colors[item.name] }}
+                  style={{
+                    backgroundColor: colors[item.name],
+                    border:
+                      typeURL === item.url ? "2px solid red" : "2px solid black"
+                  }}
                   onClick={() => setTypeURL(item.url)}>
                   {item.name !== "unknown" && item.name}
-                </p>
+                </div>
               )
             })}
           </div>
-          <button onClick={handlePokemonData}>Search</button>
+          <button className='popup__button-search' onClick={handlePokemonData}>
+            Search
+          </button>
         </div>
       </section>
     </main>
