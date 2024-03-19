@@ -54,7 +54,9 @@ export const Details = () => {
               />
             </div>
             <p className="detail__id-name">
-              #{singlePokemon.id} {singlePokemon.name}
+              #{String(singlePokemon.id).padStart(3, "0")}{" "}
+              {String(singlePokemon.name).charAt(0).toUpperCase() +
+                String(singlePokemon.name).slice(1)}
             </p>
           </div>
           <div className="detail__types">
@@ -71,7 +73,7 @@ export const Details = () => {
           </div>
         </div>
       ) : (
-        <p>Laden...</p>
+        <p>Loading...</p>
       )}
     </>
   );
