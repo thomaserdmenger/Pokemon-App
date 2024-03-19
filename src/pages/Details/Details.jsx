@@ -10,18 +10,23 @@ import { colors } from "../../assets/data/data";
 export const Details = () => {
   //  --- useState
   const [singlePokemon, setSinglePokemon] = useState([]);
+  const [searchText, setSearchText] = useState("");
+
+  console.log(searchText);
+  // console.log(pokemonData);
+  useEffect(() => {}, [searchText]);
+
   // --- store link id
   const { id } = useParams();
 
-  // --- fetch
+  // --- fetch for one pokemon by ID
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${Number(id)}`)
       .then((res) => res.json())
       .then((fetchData) => setSinglePokemon(fetchData))
       .catch((err) => console.error("fetch error at detailpage"));
-  }, []);
-  // singlePokemon && console.log(singlePokemon);
-  // console.log(singlePokemon.types);
+  }, [id]);
+
   return (
     <>
       <Header />
@@ -43,7 +48,10 @@ export const Details = () => {
                 />
               </svg>
             </Link>
-            <SearchBar />
+            <SearchBar
+              setSearchResult={setSearchText}
+              searchResult={searchText}
+            />
             <DarkMode />
           </div>
           <div className="detail__image-title">
