@@ -10,18 +10,42 @@ import { colors } from "../../assets/data/data";
 export const Details = () => {
   //  --- useState
   const [singlePokemon, setSinglePokemon] = useState([]);
+  // search function usestates
+  const [searchText, setSearchText] = useState("");
+  const [pokemonByName, setPokemonByName] = useState(null);
+  const [pokemonFilteredData, setPokemonFilteredData] = useState([]);
+
+  // console.log(searchText);
+  // console.log(pokemonByName);
+  console.log(pokemonFilteredData);
+
   // --- store link id
   const { id } = useParams();
 
-  // --- fetch
+  // --- fetch for one pokemon by ID
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${Number(id)}`)
       .then((res) => res.json())
       .then((fetchData) => setSinglePokemon(fetchData))
       .catch((err) => console.error("fetch error at detailpage"));
   }, []);
-  // singlePokemon && console.log(singlePokemon);
-  // console.log(singlePokemon.types);
+
+  // ------------ fetch for pokemon by name
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/pokemon")
+      .then((res) => res.json())
+      .then((apiData) => setPokemonByName(apiData))
+      .catch((error) => console.error("Error in Home.jsx fetch", error));
+  }, []);
+
+  // -------------  search function
+  useEffect(() => {
+    const filteredData = pokemonByName?.results?.filter((item) =>
+      item.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setPokemonFilteredData(filteredData);
+  }, [searchText]);
+  // ================ RENDERING ================
   return (
     <>
       <Header />
@@ -43,7 +67,11 @@ export const Details = () => {
                 />
               </svg>
             </Link>
-            <SearchBar />
+            <SearchBar
+              setSearchResult={setSearchText}
+              searchResult={searchText}
+            />
+            <article className="detail__serch-options"></article>
             <DarkMode />
           </div>
           <div className="detail__image-title">
