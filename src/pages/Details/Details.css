@@ -33,7 +33,7 @@
 }
 .detail__image_wrapper {
   margin-top: 14vh;
-  background: linear-gradient(#ffe1c6, #ffcb05);
+  background: linear-gradient(#ffcb05, #ffe1c6);
   border-radius: 20px;
   width: 60%;
 }
