@@ -1,0 +1,9 @@
+.darkMode__image {
+  cursor: pointer;
+  /* # Farbe temporär vergeben, da noch kein Background der Komponente */
+  fill: red;
+  width: 25px;
+  height: 25px;
+  /* # Margin noch entfernen. Achtung: Images von Anna haben negative Margin! */
+  margin-block-end: 4rem;
+}
