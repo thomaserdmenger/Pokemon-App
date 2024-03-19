@@ -3,3 +3,10 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
+
+.home__search-container {
+  display: flex;
+  align-items: center;
+  margin-block-end: 2rem;
+  margin-block-start: 1rem;
+}

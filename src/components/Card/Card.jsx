@@ -1,4 +1,3 @@
-// # Links noch implementieren
 import { Link } from "react-router-dom"
 import "./Card.css"
 import { useEffect, useState } from "react"
@@ -17,7 +16,7 @@ export const Card = (props) => {
   return (
     <article className='card__container'>
       {pokemonData ? (
-        <div>
+        <Link to={`/pokemon/${pokemonData.id}`}>
           <img
             src={pokemonData?.sprites?.other?.home?.front_default}
             alt='Pokemon'
@@ -32,7 +31,7 @@ export const Card = (props) => {
             </p>
             <p className='card__details__title'>{pokemonData?.name}</p>
           </div>
-        </div>
+        </Link>
       ) : (
         <p>loading</p>
       )}

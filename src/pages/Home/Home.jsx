@@ -36,7 +36,7 @@ export const Home = () => {
         {!togglePopup && pokemonTypeData.length === 0 && (
           <main>
             <Header />
-            <div>
+            <div className='home__search-container'>
               <BurgerMenu
                 setTogglePopup={setTogglePopup}
                 togglePopup={togglePopup}
@@ -97,5 +97,3 @@ export const Home = () => {
     </>
   )
 }
-
-// pokemonTypeData?.pokemon?.map((item) => console.log(item.pokemon.name))
