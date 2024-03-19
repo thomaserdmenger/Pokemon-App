@@ -2,12 +2,12 @@ import "./Popup.css"
 import { colors } from "../../assets/data/data"
 import { useState, useEffect } from "react"
 
-export const Popup = () => {
+export const Popup = ({ setTogglePopup, togglePopup }) => {
   const [type, setType] = useState([])
   const [typeURL, setTypeURL] = useState("")
   const [pokemonData, setPokemonData] = useState([])
 
-  console.log(pokemonData)
+  // console.log(pokemonData)
 
   // Fetch Data From Type API
   useEffect(() => {
@@ -21,8 +21,12 @@ export const Popup = () => {
     if (typeURL !== "") {
       fetch(typeURL)
         .then((res) => res.json())
-        .then((data) => setPokemonData(data))
+        .then((data) => {
+          setPokemonData(data)
+        })
     }
+
+    setTogglePopup((prevValue) => !prevValue)
   }
 
   // # Pokemondata in Komponente von Anna, damit der Content gerendert wird

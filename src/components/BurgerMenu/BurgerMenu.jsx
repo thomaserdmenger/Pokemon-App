@@ -1,9 +1,8 @@
 import { useState } from "react"
 import "./BurgerMenu.css"
 
-export const BurgerMenu = () => {
+export const BurgerMenu = ({ togglePopup, setTogglePopup }) => {
   // # State in Home Komponente und über Props toggeln
-  const [togglePopup, setTogglePopup] = useState(false)
   // console.log(togglePopup)
 
   return (
