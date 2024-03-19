@@ -15,16 +15,13 @@ export const Home = () => {
   // State for Burger Menu
   const [togglePopup, setTogglePopup] = useState(false);
 
-  // # State for Pokemon Data per Type form Popup
   const [pokemonTypeData, setPokemonTypeData] = useState([]);
   const [pokemonFilterdTypeData, setPokemonFilteredTypeData] = useState([]);
-  // console.log(pokemonTypeData);
-  // console.log(pokemonFilterdTypeData);
 
   // User Input
   const [searchResult, setSearchResult] = useState("");
 
-  // 1025 einträge, der Rest sind spezielle Formen von pokemon
+  // # 1025 einträge, der Rest sind spezielle Formen von pokemon
   // https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1025
   //izel die lösung für die ladezeiten mal schauen
   useEffect(() => {
@@ -33,7 +30,6 @@ export const Home = () => {
       .then((apiData) => setPokemonData(apiData))
       .catch((error) => console.error("Error in Home.jsx fetch", error));
   }, []);
-  // console.log(pokemonData);
 
   // Filter Pokemon Data for Home Page per User Input
   useEffect(() => {
@@ -44,7 +40,6 @@ export const Home = () => {
     setPokemonFilteredData(filteredData);
   }, [searchResult]);
 
-  // # Filter Pokomon Type Data for Home Page per User Input
   useEffect(() => {
     const filteredData = pokemonTypeData?.pokemon?.filter((item) =>
       item.pokemon.name.toLowerCase().includes(searchResult.toLowerCase())

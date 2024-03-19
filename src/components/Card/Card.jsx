@@ -13,27 +13,30 @@ export const Card = (props) => {
   }, [props.imgURL]);
 
   return (
-    <article className="card__container">
+    <>
       {pokemonData ? (
-        <Link to={`/pokemon/${pokemonData.id}`}>
-          <img
-            src={pokemonData?.sprites?.other?.home?.front_default}
-            alt="Pokemon"
-          />
-          <div className="card__details">
-            <p>
-              {pokemonData?.id < 10
-                ? `00${pokemonData?.id}`
-                : pokemonData?.id < 100
-                ? `0${pokemonData?.id}`
-                : pokemonData?.id}
-            </p>
-            <p className="card__details__title">{pokemonData?.name}</p>
-          </div>
-        </Link>
+        <article className="card__container">
+          <Link className="card" to={`/pokemon/${pokemonData.id}`}>
+            <img
+              className="card__image"
+              src={pokemonData?.sprites?.other?.home?.front_default}
+              alt="Pokemon"
+            />
+            <div className="card__details">
+              <p>
+                {pokemonData?.id < 10
+                  ? `#00${pokemonData?.id}`
+                  : pokemonData?.id < 100
+                  ? `#0${pokemonData?.id}`
+                  : `#${pokemonData?.id}`}
+              </p>
+              <p className="card__details__title">{pokemonData?.name}</p>
+            </div>
+          </Link>
+        </article>
       ) : (
         <p>loading</p>
       )}
-    </article>
+    </>
   );
 };

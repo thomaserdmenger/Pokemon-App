@@ -5,12 +5,14 @@ import { Details } from "./pages/Details/Details";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/pokemon/:id" element={<Details />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="wrapper">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pokemon/:id" element={<Details />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
