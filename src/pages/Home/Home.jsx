@@ -10,8 +10,9 @@ import { useEffect, useState } from "react"
 export const Home = () => {
   // State for Pokemon Data for Home Page
   const [pokemonData, setPokemonData] = useState([])
-  const [pokemonFilteredData, setPokemonFilteredData] = useState([])
-  console.log(pokemonFilteredData)
+  // const [pokemonFilteredData, setPokemonFilteredData] = useState([])
+  // console.log(pokemonFilteredData)
+  // console.log(pokemonData)
 
   // State for Burger Menu
   const [togglePopup, setTogglePopup] = useState(false)
@@ -20,7 +21,7 @@ export const Home = () => {
   // State for Pokemon Data per Type form Popup
   const [pokemonTypeData, setPokemonTypeData] = useState([])
   const [pokemonFilterdTypeData, setPokemonFilteredTypeData] = useState([])
-  console.log(pokemonFilterdTypeData)
+  // console.log(pokemonFilterdTypeData)
 
   // User Input
   const [searchResult, setSearchResult] = useState("")
@@ -38,17 +39,30 @@ export const Home = () => {
 
   // Filter Pokemon Data for Home Page per User Input
   useEffect(() => {
-    const filteredData = pokemonData?.results?.filter((item) =>
-      item.name.toLowerCase().includes(searchResult.toLowerCase())
-    )
-    setPokemonFilteredData(filteredData)
-  }, [searchResult])
+    if (searchResult.length !== 0) {
+      const filteredData = [...pokemonData.results].filter((item) =>
+        item.name.toLowerCase().includes(searchResult.toLowerCase())
+      )
+
+      // console.log(filteredData)
+
+      let object = {
+        results: filteredData
+      }
+
+      console.log(object)
+
+      setPokemonData(object)
+    }
+    setPokemonData(pokemonData)
+  }, [searchResult, pokemonData])
 
   // Filter Pokomon Type Data for Home Page per User Input
   useEffect(() => {
     const filteredData = pokemonTypeData?.results?.filter((item) =>
       item.name.toLowerCase().includes(searchResult.toLowerCase())
     )
+
     setPokemonFilteredTypeData(filteredData)
   }, [searchResult])
 
@@ -70,27 +84,17 @@ export const Home = () => {
               />
               <DarkMode />
             </div>
-            {searchResult.length === 0 ? (
+            {
               <section className='home__cardContainer'>
                 {pokemonData.results ? (
-                  pokemonData?.results.map((item, index) => (
+                  pokemonData.results.map((item, index) => (
                     <Card imgURL={item?.url} key={index} title={item.name} />
                   ))
                 ) : (
                   <p>loading...</p>
                 )}
               </section>
-            ) : (
-              <section className='home__cardContainer'>
-                {pokemonFilteredData ? (
-                  pokemonFilteredData.map((item, index) => (
-                    <Card imgURL={item?.url} key={index} title={item.name} />
-                  ))
-                ) : (
-                  <p>loading...</p>
-                )}
-              </section>
-            )}
+            }
           </main>
         )}
       </div>
