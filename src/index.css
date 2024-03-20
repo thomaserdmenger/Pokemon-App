@@ -64,6 +64,7 @@ a {
   max-width: 450px;
   margin-inline: auto;
   padding-block-start: 1rem;
+  min-height: 100vh;
 }
 
 .wrapper.dark {
