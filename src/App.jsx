@@ -9,7 +9,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className="wrapper">
+    <div className={darkMode ? "wrapper dark" : "wrapper"}>
       <darkModeContext.Provider value={{ setDarkMode, darkMode }}>
         <BrowserRouter>
           <Routes>

@@ -1,11 +1,13 @@
 import "./Popup.css";
 import { colors } from "../../assets/data/data";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Header } from "../Header/Header";
+import { darkModeContext } from "../../context/Context";
 
 export const Popup = ({ setTogglePopup, setPokemonTypeData }) => {
   const [type, setType] = useState([]);
   const [typeURL, setTypeURL] = useState("");
+  const { darkMode } = useContext(darkModeContext);
 
   // Fetch Data From Type API
   useEffect(() => {
@@ -45,7 +47,7 @@ export const Popup = ({ setTogglePopup, setPokemonTypeData }) => {
         </svg>
       </div>
       <main>
-        <section className="popup">
+        <section className={darkMode ? "popup dark" : "popup"}>
           <img
             className="popup__heading"
             src="/images/type.png"

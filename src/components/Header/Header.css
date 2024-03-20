@@ -1,6 +1,10 @@
 .header {
   padding: 1.4375rem 0;
-  background-color: #ccdadd;
+  background-color: var(--color-background);
   display: flex;
   justify-content: center;
+}
+
+.header.dark {
+  background-color: var(--color-background-dark);
 }

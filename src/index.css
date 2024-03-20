@@ -17,7 +17,7 @@
 
 :root {
   --color-background: #ccdadd;
-  --color-background-dark: #075668;
+  --color-background-dark: #2a3964;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-gray-light: #ebebeb;
@@ -47,7 +47,6 @@
 
 html {
   font-family: Inter;
-  background-color: var(--color-background);
 }
 
 img {
@@ -60,8 +59,13 @@ a {
 }
 
 .wrapper {
+  background-color: var(--color-background);
   padding-inline: 2rem;
   max-width: 450px;
   margin-inline: auto;
   padding-block-start: 1rem;
+}
+
+.wrapper.dark {
+  background-color: var(--color-background-dark);
 }

@@ -21,11 +21,8 @@ export const Home = () => {
   // User Input
   const [searchResult, setSearchResult] = useState("");
 
-  // # 1025 einträge, der Rest sind spezielle Formen von pokemon
-  // https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1025
-  //izel die lösung für die ladezeiten mal schauen
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon")
+    fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100")
       .then((res) => res.json())
       .then((apiData) => setPokemonData(apiData))
       .catch((error) => console.error("Error in Home.jsx fetch", error));
