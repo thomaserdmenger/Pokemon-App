@@ -1,6 +1,7 @@
 import "./Loading.css";
 
 export const Loading = () => {
+
   return (
     <section className="loading">
       <img src="/images/PokemonLogoSVG.svg" alt="" className="loading__logo fade-in" />

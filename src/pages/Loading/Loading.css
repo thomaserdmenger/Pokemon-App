@@ -3,7 +3,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 20vh;
+  min-height: 100vh;
+  max-width: 450px;
+  margin: auto;
+  background-color: var(--color-background);
 }
 .loading__logo {
   padding-bottom: 4vh;
