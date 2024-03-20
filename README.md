@@ -25,10 +25,11 @@
 
 ## Links
 
-<!-- - [See live site here](https://tasty-react-sigma.vercel.app/) -->
-
+- [See live site here](https://pokemon-app-gilt-nine.vercel.app/)
 - [GitHub Repository](https://github.com/thomaserdmenger/Pokemon-App)
 - [GitHub Author](https://github.com/thomaserdmenger)
 - [LinkedIn Author](https://www.linkedin.com/in/thomaserdmenger/)
 
 ## Screenshot-Image
+
+![](./public/images/screenshot.png)
