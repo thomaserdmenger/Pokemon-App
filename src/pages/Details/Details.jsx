@@ -11,10 +11,7 @@ import { darkModeContext } from "../../context/Context";
 export const Details = () => {
   //  --- useState
   const [singlePokemon, setSinglePokemon] = useState([]);
-  // ----------- search function usestates
-  const [searchText, setSearchText] = useState("");
-  const [pokemonByName, setPokemonByName] = useState(null);
-  const [pokemonFilteredData, setPokemonFilteredData] = useState([]);
+
   // --- useContext
   const { darkMode } = useContext(darkModeContext);
 
@@ -29,21 +26,6 @@ export const Details = () => {
       .catch((err) => console.error("fetch error at detailpage"));
   }, []);
 
-  // ------------ fetch for pokemon by name
-  useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon")
-      .then((res) => res.json())
-      .then((apiData) => setPokemonByName(apiData))
-      .catch((error) => console.error("Error in Home.jsx fetch", error));
-  }, []);
-
-  // -------------  search function
-  useEffect(() => {
-    const filteredData = pokemonByName?.results?.filter((item) =>
-      item.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-    setPokemonFilteredData(filteredData);
-  }, [searchText]);
   // ================ RENDERING ================
   return (
     <>
@@ -66,12 +48,7 @@ export const Details = () => {
                 />
               </svg>
             </Link>
-            <SearchBar
-              setSearchResult={setSearchText}
-              searchResult={searchText}
-            />
-            {/* --- article for search pop-up */}
-            <article className="detail__serch-options"></article>
+
             <DarkMode />
           </div>
           <div className="detail__image-title">
@@ -99,6 +76,27 @@ export const Details = () => {
                 {item.type.name}
               </p>
             ))}
+          </div>
+
+          <div
+            className={
+              darkMode ? "detail__ability-moves dark" : "detail__ability-moves"
+            }
+          >
+            <h2>Abilities</h2>
+
+            {singlePokemon.abilities.map(
+              (item, index) =>
+                index <= 15 && <p key={index}>{item.ability.name}</p>
+            )}
+
+            <h2>Moves</h2>
+            <div className="detail__moves">
+              {singlePokemon.moves.map(
+                (item, index) =>
+                  index <= 15 && <p key={index}>{item.move.name}</p>
+              )}
+            </div>
           </div>
         </div>
       ) : (
