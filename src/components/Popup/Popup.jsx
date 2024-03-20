@@ -48,7 +48,7 @@ export const Popup = ({ setTogglePopup, setPokemonTypeData }) => {
         <section className="popup">
           <img
             className="popup__heading"
-            src="/public/images/type.png"
+            src="/images/type.png"
             alt="Type Logo"
           />
           <div className="popup__form">
