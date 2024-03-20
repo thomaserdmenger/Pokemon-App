@@ -1,8 +1,34 @@
-# React + Vite
+# Collaborative project: Mobile Pokemon App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Contributors
 
-Currently, two official plugins are available:
+- [Anna Gofman](https://github.com/Nostea)
+- [Christian Angerer](https://github.com/ChrissQAng)
+- [Thomas Erdmenger](https://github.com/thomaserdmenger)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Purpose of the App
+
+- Search for Pokemon
+- Search Pokemon by type
+- Display the details of the respective Pokemon
+
+## Built with
+
+- Mobile Design
+- Grid and Flexbox Layout
+- React
+- React Router DOM
+- Fetch API
+- PokeAPI
+- Dark Mode
+- Splash Screen
+
+## Links
+
+<!-- - [See live site here](https://tasty-react-sigma.vercel.app/) -->
+
+- [GitHub Repository](https://github.com/thomaserdmenger/Pokemon-App)
+- [GitHub Author](https://github.com/thomaserdmenger)
+- [LinkedIn Author](https://www.linkedin.com/in/thomaserdmenger/)
+
+## Screenshot-Image
