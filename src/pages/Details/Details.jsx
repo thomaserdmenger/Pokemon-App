@@ -72,6 +72,7 @@ export const Details = () => {
           <div className="detail__image-title">
             <div className="detail__image_wrapper">
               <img
+                className="detail__image"
                 src={singlePokemon.sprites.other.home.front_default}
                 alt="{singlePokemon.name}"
               />

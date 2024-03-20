@@ -1,3 +1,20 @@
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .detail {
   margin-top: -1px;
   background-color: var(--color-background);
@@ -23,6 +40,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.detail__image {
+  animation: bounce-in 2s ease;
+}
+
 .detail__id-name {
   margin-top: 1.875rem;
   font-family: Roboto-Black, Arial, Helvetica, sans-serif;
