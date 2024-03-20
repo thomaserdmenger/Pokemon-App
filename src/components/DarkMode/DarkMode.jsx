@@ -1,10 +1,10 @@
 import "./DarkMode.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { darkModeContext } from "../../context/Context";
 
 export const DarkMode = () => {
   const { darkMode, setDarkMode } = useContext(darkModeContext);
-  console.log(darkMode);
+  // console.log(darkMode);
 
   return (
     <div className="darkMode">
