@@ -4,7 +4,6 @@ import { darkModeContext } from "../../context/Context";
 
 export const DarkMode = () => {
   const { darkMode, setDarkMode } = useContext(darkModeContext);
-  // console.log(darkMode);
 
   return (
     <div className="darkMode">
